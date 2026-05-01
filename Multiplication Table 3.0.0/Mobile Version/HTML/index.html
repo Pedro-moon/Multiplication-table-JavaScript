@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada da Multiplicação</title>
+    <link rel="shortcut icon" href="../favicon/matematicas.png" type="image/x-icon">
+</head>
+<body>
+    <script>
+        /*
+*Programa para ajudar a decorar a tabuada da multiplicação
+*author Pedro Lucas
+*version 3.0.0
+*since 20/03/26
+*/
+//PARTE 1 DO PROGRAMA -INICIO-
+let escolhas_possiveis_operacao = [1, 2, 3, 4]
+let escolha_operacao = null
+while (!escolhas_possiveis_operacao.includes(escolha_operacao)){
+    escolha_operacao = parseInt(prompt('Faça sua escolha:\n\n[1] Estudar a tabuada da multiplicação\n\n[2] Jogo da tabuada da multiplicação\n\n[3] Jogo invertido da tabuada da multiplicação\n\n[4] Vídeo para entender a lógiica do programa'))
+    if (!escolhas_possiveis_operacao.includes(escolha_operacao)){
+        alert('Insira um número válido (1, 2, 3 ou 4)')
+    }
+}
+//PARTE 1 DO PROGRAMA -FIM-
+//PARTE 2 DO PROGRAMA -INICIO-
+switch (escolha_operacao){
+    case 1:
+        let numeros_possiveis = [2, 3, 4, 5, 6, 7, 8, 9]
+        let numeros_estudo = null
+        while (!numeros_possiveis.includes(numeros_estudo)){
+            numeros_estudo = parseInt(prompt('Insira o número que quer estudar, de (2 a 9)'))
+            if (!numeros_possiveis.includes(numeros_estudo)){
+                alert('Insira um número válido, de (2 a 9)')
+            }
+        }
+        for (let i = 2; i <= 9; i ++){
+            document.write(`${numeros_estudo} x ${i} = ${numeros_estudo * i}<br>`)
+        }
+        break
+//PARTE 2 DO PROGRAMA -FIM-
+//PARTE 3 DO PROGRAMA -INICIO-
+    case 2:
+        let escolhas_possiveis_jogo = [2, 3, 4, 5, 6, 7, 8, 9]
+        let escolha_jogo = null
+        while (!escolhas_possiveis_jogo.includes(escolha_jogo)){
+            escolha_jogo = parseInt(prompt('Insira o número que quer brincar, de (2 a 9)'))
+            if (!escolhas_possiveis_jogo.includes(escolha_jogo)){
+                alert('Insira um número válido, de (2 a 9)')
+            }
+        }
+        for (let i = escolha_jogo; i <= 9; i ++){
+            let resposta = parseInt(prompt(`${escolha_jogo} x ${i} = ?`))
+            let correto = escolha_jogo * i
+            if (resposta == correto){
+                document.write(`${escolha_jogo} x ${i} = ${correto} ✅ Acertou!<br>`)
+            }else{
+                document.write(`${escolha_jogo} x ${i} = ${resposta} ❌ Errou!<br>`)
+            }
+        }
+        break
+//PARTE 3 DO PROGRAMA -FIM-
+//PARTE 4 DO PROGRAMA -INICIO-
+    case 3:
+        let escolha_possiveis_jogo_invertido = [2, 3, 4, 5, 6, 7,8 ,9]
+        let escolha_jogo_invertido = null
+        while (!escolha_possiveis_jogo_invertido.includes(escolha_jogo_invertido)){
+            escolha_jogo_invertido = parseInt(prompt('Escolha o número que quer brincar, de (2 a 9)'))
+            if (!escolha_possiveis_jogo_invertido.includes(escolha_jogo_invertido)){
+                alert('Insira um número válido, de (2 a 9)')
+            }
+        }
+        for (let i = 2; i <= 9; i ++){
+            let resposta = parseInt(prompt(`${escolha_jogo_invertido} x ? = ${escolha_jogo_invertido * i}`))
+            let resultado_esperado = escolha_jogo_invertido * i
+            if (resposta == i){
+                document.write(`${escolha_jogo_invertido} x ${resposta} = ${resultado_esperado} ✅ Acertou!<br>`)
+            }else{
+                document.write(`${escolha_jogo_invertido} x ${resposta} = ${escolha_jogo_invertido * resposta} ❌ Errou!<br>`)
+            }
+        }
+        break
+//PARTE 4 DO PROGRAMA -FIM-
+//PARTR 5 DO PROGRAMA -INICIO-
+    case 4:
+        window.location.assign("https://youtu.be/dSvQnPtKiVg?si=2RN7gM99D8JwbZZr")
+        break
+}
+    </script>
+</body>
+</html>
